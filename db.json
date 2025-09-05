@@ -1,6 +1,22 @@
 {
   "products": [
-    { "id": 1, "name": "Laptop", "price": 1200, "stock": 8 },
-    { "id": 2, "name": "Mouse",  "price": 20,   "stock": 50 }
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 1200,
+      "stock": 8
+    },
+    {
+      "id": "2",
+      "name": "Mouse",
+      "price": 20,
+      "stock": 50
+    },
+    {
+      "id": "b382",
+      "name": "PC",
+      "price": 500,
+      "stock": 4
+    }
   ]
 }
