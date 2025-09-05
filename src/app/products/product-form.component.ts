@@ -10,11 +10,12 @@ import { ProductService } from './product.service';
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
     template: `
-        <div class="container py-4">
-            <h3>{{ isEdit ? 'Editar' : 'Nuevo' }} producto</h3>
-            <div *ngIf="message" class="alert alert-success">{{ message }}</div>
-            <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+				<div class="container py-4">
+					<div class="form-modern mx-auto">
+						<h3>{{ isEdit ? 'Editar' : 'Nuevo' }} producto</h3>
+						<div *ngIf="message" class="alert alert-success">{{ message }}</div>
+						<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+						<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
                     <input type="text" class="form-control" formControlName="name" />
@@ -36,16 +37,17 @@ import { ProductService } from './product.service';
                         Stock válido mayor o igual a 0
                     </div>
                 </div>
-                <div class="d-flex gap-2">
+				<div class="d-flex gap-2 mt-3">
 					<button class="btn btn-warning btn-animated d-flex align-items-center gap-1" type="submit">
 						<img src="https://img.icons8.com/emoji/24/000000/pirate-flag.png" alt="Pirate Flag" style="width:22px; height:22px;"> Guardar
 					</button>
 					<button class="btn btn-secondary btn-animated d-flex align-items-center gap-1" type="button" (click)="goBack()">
 						<img src="https://img.icons8.com/ios-filled/22/000000/anchor.png" alt="Anchor" style="width:20px; height:20px;"> Cancelar
 					</button>
-                </div>
-            </form>
-        </div>
+				</div>
+			</form>
+		  </div>
+		</div>
     `
 })
 

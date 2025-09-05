@@ -10,3 +10,4 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes)
   ]
 };
+//npx json-server --watch db.json --port 3000 EJECUTAR ESTE COMANDO PARA LEVANTAR EL SERVIDOR JSON-SERVER

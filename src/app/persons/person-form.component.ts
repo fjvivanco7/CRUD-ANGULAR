@@ -11,10 +11,11 @@ import { PersonService } from './person.service';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <div class="container py-4">
-      <h3>{{ isEdit ? 'Editar' : 'Nueva' }} persona</h3>
-      <div *ngIf="message" class="alert alert-success">{{ message }}</div>
-      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-modern mx-auto">
+  <h3>{{ isEdit ? 'Editar' : 'Nueva' }} persona</h3>
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
         <div class="mb-3">
           <label class="form-label">Nombre</label>
           <input type="text" class="form-control" formControlName="name" />
@@ -29,7 +30,21 @@ import { PersonService } from './person.service';
             Edad válida mayor o igual a 0
           </div>
         </div>
-        <div class="d-flex gap-2">
+        <div class="mb-3">
+          <label class="form-label">Ocupación</label>
+          <input type="text" class="form-control" formControlName="ocupacion" />
+          <div class="text-danger small" *ngIf="submitted && form.controls['ocupacion'].invalid">
+            Ocupación requerida (mínimo 2 caracteres)
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Recompensa</label>
+          <input type="number" class="form-control" formControlName="recompensa" />
+          <div class="text-danger small" *ngIf="submitted && form.controls['recompensa'].invalid">
+            Recompensa válida mayor o igual a 0
+          </div>
+        </div>
+        <div class="d-flex gap-2 mt-3">
           <button class="btn btn-warning btn-animated d-flex align-items-center gap-1" type="submit">
             <img src="https://img.icons8.com/emoji/24/000000/pirate-flag.png" alt="Pirate Flag" style="width:22px; height:22px;"> Guardar
           </button>
@@ -38,6 +53,7 @@ import { PersonService } from './person.service';
           </button>
         </div>
       </form>
+      </div>
     </div>
   `
 })
@@ -57,7 +73,9 @@ export class PersonFormComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      age: [0, [Validators.required, Validators.min(0)]]
+      age: [0, [Validators.required, Validators.min(0)]],
+      ocupacion: ['', [Validators.required, Validators.minLength(2)]],
+      recompensa: [0, [Validators.required, Validators.min(0)]]
     });
   }
 
@@ -67,7 +85,15 @@ export class PersonFormComponent implements OnInit {
       this.isEdit = true;
       this.personId = Number(idParam);
       this.personService.getById(this.personId).subscribe({
-        next: (p) => this.form.patchValue(p),
+        next: (p) => {
+          // Asegura que los campos extra existan aunque no estén en el backend
+          this.form.patchValue({
+            name: p.name,
+            age: p.age,
+            ocupacion: p.ocupacion ?? '',
+            recompensa: p.recompensa ?? 0
+          });
+        },
         error: (err) => console.error('Error al cargar persona', err)
       });
     }
@@ -81,7 +107,9 @@ export class PersonFormComponent implements OnInit {
     const raw = this.form.getRawValue();
     const payload: Person = {
       name: raw.name!,
-      age: raw.age!
+      age: raw.age!,
+      ocupacion: raw.ocupacion!,
+      recompensa: raw.recompensa!
     };
     const request$ = this.isEdit && this.personId
       ? this.personService.update(this.personId, payload)

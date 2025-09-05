@@ -35,6 +35,8 @@ import { Person } from './person.model';
               <th>ID</th>
               <th>Nombre</th>
               <th>Edad</th>
+              <th>Ocupación</th>
+              <th>Recompensa</th>
               <th class="text-end">Acciones</th>
             </tr>
           </thead>
@@ -43,6 +45,8 @@ import { Person } from './person.model';
               <td>{{ p.id }}</td>
               <td>{{ p.name }}</td>
               <td>{{ p.age }}</td>
+              <td>{{ p.ocupacion }}</td>
+              <td>{{ p.recompensa | currency:'USD' }}</td>
               <td class="text-end">
                 <a class="btn btn-sm btn-primary btn-animated d-inline-flex align-items-center gap-1 me-2" [routerLink]="['/personas', p.id, 'edit']">
                   <img src="https://img.icons8.com/color/20/edit--v1.png" alt="Editar"> Editar
