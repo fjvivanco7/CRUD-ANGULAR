@@ -37,8 +37,12 @@ import { ProductService } from './product.service';
                     </div>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    <button class="btn btn-secondary" type="button" (click)="goBack()">Cancelar</button>
+					<button class="btn btn-warning btn-animated d-flex align-items-center gap-1" type="submit">
+						<img src="https://img.icons8.com/emoji/24/000000/pirate-flag.png" alt="Pirate Flag" style="width:22px; height:22px;"> Guardar
+					</button>
+					<button class="btn btn-secondary btn-animated d-flex align-items-center gap-1" type="button" (click)="goBack()">
+						<img src="https://img.icons8.com/ios-filled/22/000000/anchor.png" alt="Anchor" style="width:20px; height:20px;"> Cancelar
+					</button>
                 </div>
             </form>
         </div>

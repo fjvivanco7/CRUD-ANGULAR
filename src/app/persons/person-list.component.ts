@@ -11,11 +11,15 @@ import { Person } from './person.model';
   template: `
     <div class="container py-4">
       <div class="mb-3">
-        <a class="btn btn-outline-secondary" routerLink="/">&larr; Volver al inicio</a>
+        <a class="btn btn-info btn-animated d-inline-flex align-items-center gap-2" routerLink="/">
+          <img src="https://img.icons8.com/fluency/24/home.png" alt="Inicio" style="width:22px; height:22px;"> Volver al inicio
+        </a>
       </div>
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="m-0">Personas</h3>
-        <a class="btn btn-primary" routerLink="/personas/new">Nueva</a>
+        <a class="btn btn-warning btn-animated d-flex align-items-center gap-2" routerLink="/personas/new">
+          <span style="font-size:1.3rem;">🏴‍☠️</span> Nueva
+        </a>
       </div>
       <div *ngIf="message" class="alert alert-success">{{ message }}</div>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
@@ -25,7 +29,7 @@ import { Person } from './person.model';
         </div>
       </div>
       <div class="table-responsive" *ngIf="!loading">
-        <table class="table table-striped align-middle">
+  <table class="table table-striped align-middle table-dynamic">
           <thead>
             <tr>
               <th>ID</th>
@@ -40,8 +44,12 @@ import { Person } from './person.model';
               <td>{{ p.name }}</td>
               <td>{{ p.age }}</td>
               <td class="text-end">
-                <a class="btn btn-sm btn-outline-secondary me-2" [routerLink]="['/personas', p.id, 'edit']">Editar</a>
-                <button class="btn btn-sm btn-outline-danger" (click)="onDelete(p)">Eliminar</button>
+                <a class="btn btn-sm btn-primary btn-animated d-inline-flex align-items-center gap-1 me-2" [routerLink]="['/personas', p.id, 'edit']">
+                  <img src="https://img.icons8.com/color/20/edit--v1.png" alt="Editar"> Editar
+                </a>
+                <button class="btn btn-sm btn-danger btn-animated d-inline-flex align-items-center gap-1" (click)="onDelete(p)">
+                  <img src="https://img.icons8.com/color/20/delete-sign--v1.png" alt="Eliminar"> Eliminar
+                </button>
               </td>
             </tr>
           </tbody>
