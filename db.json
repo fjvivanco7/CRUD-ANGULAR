@@ -1,33 +1,58 @@
 {
   "products": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Laptop",
       "price": 1200,
       "stock": 8
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Mouse",
       "price": 20,
       "stock": 50
     },
     {
-      "id": "b382",
+      "id": 3,
       "name": "PC",
       "price": 500,
       "stock": 4
     },
     {
-      "id": "33ec",
+      "id": 4,
       "name": "Teclado",
       "price": 30,
       "stock": 6
     }
   ],
   "persons": [
-    { "id": 1, "name": "Luffy", "age": 19 },
-    { "id": 2, "name": "Zoro", "age": 21 },
-    { "id": 3, "name": "Nami", "age": 20 }
+    {
+      "id": 1,
+      "name": "Luffy",
+      "age": 19,
+      "ocupacion": "Capitán",
+      "recompensa": 1500000000
+    },
+    {
+      "id": 2,
+      "name": "Zoro",
+      "age": 21,
+      "ocupacion": "Espadachín",
+      "recompensa": 320000000
+    },
+    {
+      "id": 3,
+      "name": "Nami",
+      "age": 20,
+      "ocupacion": "Navegante",
+      "recompensa": 66000000
+    },
+    {
+      "id": 4,
+      "name": "Fernando",
+      "age": 25,
+      "ocupacion": "Programador",
+      "recompensa": 1000000
+    }
   ]
 }
