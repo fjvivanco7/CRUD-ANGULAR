@@ -17,6 +17,17 @@
       "name": "PC",
       "price": 500,
       "stock": 4
+    },
+    {
+      "id": "33ec",
+      "name": "Teclado",
+      "price": 30,
+      "stock": 6
     }
+  ],
+  "persons": [
+    { "id": 1, "name": "Luffy", "age": 19 },
+    { "id": 2, "name": "Zoro", "age": 21 },
+    { "id": 3, "name": "Nami", "age": 20 }
   ]
 }
