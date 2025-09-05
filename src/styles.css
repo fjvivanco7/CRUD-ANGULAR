@@ -1,54 +1,55 @@
+/* Rediseño visual moderno y claro para el CRUD */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Rediseño visual moderno para el CRUD */
 body {
 	min-height: 100vh;
-	background: linear-gradient(135deg, #232526 0%, #414345 100%);
+	background: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%);
 	font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-	color: #f3f4f6;
+	color: #22223b;
 }
 
 .container {
-	background: rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.85);
 	border-radius: 18px;
-	box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+	box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);
 	padding: 2.5rem 2.5rem;
 	margin-top: 2.5rem;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(1.5px);
 }
 
 table.table {
 	border-radius: 12px;
 	overflow: hidden;
-	background: rgba(255,255,255,0.13);
-	color: #f3f4f6;
+	background: #f0f4ff;
+	color: #22223b;
 }
 
 th, td {
 	vertical-align: middle !important;
-	border-color: #444 !important;
+	border-color: #b6ccfe !important;
 }
 
 th {
-	background: rgba(0,0,0,0.12);
+	background: #dbeafe;
 	font-weight: 600;
 	letter-spacing: 0.5px;
 }
 
 .btn-primary {
-	background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+	background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
 	border: none;
 	font-weight: 600;
 	letter-spacing: 0.5px;
-	box-shadow: 0 2px 8px 0 rgba(221,36,118,0.15);
+	box-shadow: 0 2px 8px 0 rgba(99,102,241,0.10);
 }
 
 .btn-outline-secondary {
-	border-color: #ff512f;
-	color: #ff512f;
+	border-color: #38bdf8;
+	color: #38bdf8;
 	font-weight: 500;
 }
 .btn-outline-secondary:hover {
-	background: #ff512f;
+	background: #38bdf8;
 	color: #fff;
 }
 
@@ -65,21 +66,35 @@ th {
 .navbar {
 	border-radius: 0 0 18px 18px;
 	box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
-	background: linear-gradient(90deg, #232526 0%, #414345 100%);
+	background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+}
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: 700;
+	font-size: 1.3rem;
+}
+.navbar-brand img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 2px 8px 0 rgba(56,189,248,0.15);
 }
 
 form .form-control {
-	background: rgba(255,255,255,0.18);
-	color: #232526;
+	background: rgba(99,102,241,0.07);
+	color: #22223b;
 	border-radius: 8px;
-	border: 1.5px solid #ff512f;
+	border: 1.5px solid #38bdf8;
 	font-weight: 500;
 }
 form .form-control:focus {
-	border-color: #dd2476;
-	box-shadow: 0 0 0 0.2rem rgba(221,36,118,.15);
+	border-color: #6366f1;
+	box-shadow: 0 0 0 0.2rem rgba(99,102,241,.15);
 	background: #fff;
-	color: #232526;
+	color: #22223b;
 }
 
 .alert {
@@ -91,9 +106,9 @@ form .form-control:focus {
 
 /* Card para formularios y tablas */
 .card {
-	background: rgba(255,255,255,0.13);
+	background: #e0e7ff;
 	border-radius: 16px;
-	box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+	box-shadow: 0 2px 16px 0 rgba(99,102,241,0.10);
 	padding: 2rem 1.5rem;
 	margin-bottom: 2rem;
 	border: none;
@@ -111,7 +126,3 @@ form .form-control:focus {
 		padding: 1rem 0.5rem;
 	}
 }
-
-/* Fuente Poppins desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-/* You can add global styles to this file, and also import other style files */
