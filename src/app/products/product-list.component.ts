@@ -11,6 +11,9 @@ import { ProductService } from './product.service';
 	imports: [CommonModule, RouterModule],
 	template: `
 		<div class="container py-4">
+			<div class="mb-3">
+				<a class="btn btn-outline-secondary" routerLink="/">&larr; Volver al inicio</a>
+			</div>
 			<div class="d-flex justify-content-between align-items-center mb-3">
 				<h3 class="m-0">Productos</h3>
 				<a class="btn btn-primary" routerLink="/products/new">Nuevo</a>

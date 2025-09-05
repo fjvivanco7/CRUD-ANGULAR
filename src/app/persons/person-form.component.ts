@@ -1,0 +1,100 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Person } from './person.model';
+import { PersonService } from './person.service';
+
+@Component({
+  selector: 'app-person-form',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: `
+    <div class="container py-4">
+      <h3>{{ isEdit ? 'Editar' : 'Nueva' }} persona</h3>
+      <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="name" />
+          <div class="text-danger small" *ngIf="submitted && form.controls['name'].invalid">
+            Nombre requerido (mínimo 2 caracteres)
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Edad</label>
+          <input type="number" class="form-control" formControlName="age" />
+          <div class="text-danger small" *ngIf="submitted && form.controls['age'].invalid">
+            Edad válida mayor o igual a 0
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+          <button class="btn btn-secondary" type="button" (click)="goBack()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  `
+})
+export class PersonFormComponent implements OnInit {
+  form;
+  isEdit = false;
+  private personId?: number;
+  submitted = false;
+  message: string | null = null;
+  error: string | null = null;
+
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private personService: PersonService
+  ) {
+    this.form = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      age: [0, [Validators.required, Validators.min(0)]]
+    });
+  }
+
+  ngOnInit(): void {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.isEdit = true;
+      this.personId = Number(idParam);
+      this.personService.getById(this.personId).subscribe({
+        next: (p) => this.form.patchValue(p),
+        error: (err) => console.error('Error al cargar persona', err)
+      });
+    }
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    this.message = null;
+    this.error = null;
+    if (this.form.invalid) return;
+    const raw = this.form.getRawValue();
+    const payload: Person = {
+      name: raw.name!,
+      age: raw.age!
+    };
+    const request$ = this.isEdit && this.personId
+      ? this.personService.update(this.personId, payload)
+      : this.personService.create(payload);
+    request$.subscribe({
+      next: () => {
+        this.message = 'Persona guardada correctamente';
+        setTimeout(() => this.router.navigate(['/personas']), 1000);
+      },
+      error: (err) => {
+        this.error = 'Error al guardar persona';
+        console.error('Error al guardar', err);
+      }
+    });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/personas']);
+  }
+}

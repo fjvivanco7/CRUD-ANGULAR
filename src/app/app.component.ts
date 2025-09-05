@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet],
+	imports: [RouterOutlet, RouterModule],
 	template: `
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
@@ -15,7 +15,13 @@ import { RouterOutlet } from '@angular/router';
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item">
+							<a class="nav-link" routerLink="/" routerLinkActive="active">Inicio</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" routerLink="/products" routerLinkActive="active">Productos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" routerLink="/personas" routerLinkActive="active">Personas</a>
 						</li>
 					</ul>
 					<div class="d-flex align-items-center ms-auto">
