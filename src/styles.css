@@ -1,1 +1,117 @@
+
+/* Rediseño visual moderno para el CRUD */
+body {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #232526 0%, #414345 100%);
+	font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+	color: #f3f4f6;
+}
+
+.container {
+	background: rgba(255,255,255,0.10);
+	border-radius: 18px;
+	box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+	padding: 2.5rem 2.5rem;
+	margin-top: 2.5rem;
+	backdrop-filter: blur(2px);
+}
+
+table.table {
+	border-radius: 12px;
+	overflow: hidden;
+	background: rgba(255,255,255,0.13);
+	color: #f3f4f6;
+}
+
+th, td {
+	vertical-align: middle !important;
+	border-color: #444 !important;
+}
+
+th {
+	background: rgba(0,0,0,0.12);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+
+.btn-primary {
+	background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+	border: none;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	box-shadow: 0 2px 8px 0 rgba(221,36,118,0.15);
+}
+
+.btn-outline-secondary {
+	border-color: #ff512f;
+	color: #ff512f;
+	font-weight: 500;
+}
+.btn-outline-secondary:hover {
+	background: #ff512f;
+	color: #fff;
+}
+
+.btn-outline-danger {
+	border-color: #f87171;
+	color: #f87171;
+	font-weight: 500;
+}
+.btn-outline-danger:hover {
+	background: #f87171;
+	color: #fff;
+}
+
+.navbar {
+	border-radius: 0 0 18px 18px;
+	box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+	background: linear-gradient(90deg, #232526 0%, #414345 100%);
+}
+
+form .form-control {
+	background: rgba(255,255,255,0.18);
+	color: #232526;
+	border-radius: 8px;
+	border: 1.5px solid #ff512f;
+	font-weight: 500;
+}
+form .form-control:focus {
+	border-color: #dd2476;
+	box-shadow: 0 0 0 0.2rem rgba(221,36,118,.15);
+	background: #fff;
+	color: #232526;
+}
+
+.alert {
+	border-radius: 10px;
+	margin-bottom: 1.2rem;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+}
+
+/* Card para formularios y tablas */
+.card {
+	background: rgba(255,255,255,0.13);
+	border-radius: 16px;
+	box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+	padding: 2rem 1.5rem;
+	margin-bottom: 2rem;
+	border: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+	.container {
+		padding: 1rem 0.5rem;
+	}
+	table {
+		font-size: 0.95rem;
+	}
+	.card {
+		padding: 1rem 0.5rem;
+	}
+}
+
+/* Fuente Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 /* You can add global styles to this file, and also import other style files */
