@@ -1,59 +1,47 @@
-# AngularSimpleCrud1
+# Angular Simple CRUD - One Piece Theme
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Este proyecto es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) desarrollada en Angular, con un diseño moderno y una temática inspirada en One Piece.
 
-## Development server
+## Características principales
 
-To start a local development server, run:
+- **Angular Standalone Components**: Arquitectura modular y moderna.
+- **CRUD de Productos y Personas**: Permite gestionar productos y personas con formularios y tablas dinámicas.
+- **Backend simulado con json-server**: Base de datos local editable en `db.json`.
+- **Estilo visual moderno**: Paleta de colores vibrante, animaciones, botones con iconos y efectos visuales.
+- **Tema One Piece**: Iconografía, colores y frases inspiradas en el anime.
+- **Validaciones de formularios**: Mensajes claros y controles amigables.
+- **Feedback visual**: Mensajes de éxito/error y spinners de carga.
+- **Responsive**: Adaptado para dispositivos móviles y escritorio.
 
-```bash
-ng serve
-```
+## Estructura de la app
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Home**: Pantalla de bienvenida con imagen animada y botones de acceso a productos y personas.
+- **Productos**: Listado, creación, edición y eliminación de productos (nombre, precio, stock).
+- **Personas**: Listado, creación, edición y eliminación de personas (nombre, edad, ocupación, recompensa).
+- **Rutas**: Navegación entre Home, Productos y Personas.
 
-## Code scaffolding
+## Instalación y ejecución
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Instala las dependencias:
+   ```powershell
+   npm install
+   ```
+2. Inicia el backend (json-server):
+   ```powershell
+   npx json-server --watch db.json --port 3000
+   ```
+3. Inicia la app Angular:
+   ```powershell
+   npm start
+   ```
+4. Accede a la app en [http://localhost:4200](http://localhost:4200)
 
-```bash
-ng generate component component-name
-```
+## Personalización
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Puedes editar `db.json` para agregar o modificar productos y personas.
+- Los estilos y animaciones se encuentran en `src/styles.css`.
+- Los iconos y colores pueden ser cambiados fácilmente para adaptar la temática.
 
-```bash
-ng generate --help
-```
+## Créditos
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desarrollado por Fernando Vivanco.
