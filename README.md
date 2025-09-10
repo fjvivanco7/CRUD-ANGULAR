@@ -1,5 +1,7 @@
 # Angular Simple CRUD - One Piece Theme
 
+![Imagen principal del CRUD](IMAGEN%20PRINCIPAL%20DEL%20CRUD.png)
+
 Este proyecto es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) desarrollada en Angular, con un diseño moderno y una temática inspirada en One Piece.
 
 ## Características principales
